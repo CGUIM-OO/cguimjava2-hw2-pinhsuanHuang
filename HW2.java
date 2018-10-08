@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * @author TODO: please add student ID and name here
+ * B0444115 黃品瑄
  * Try to write some comments for your codes (methods, 15 points)
  */
 public class HW2 {
@@ -15,6 +16,7 @@ public class HW2 {
         
 		int nDeck=Integer.parseInt(testn);
 		Deck deck=new Deck(nDeck);
+		
 		//TODO: please check your output, make sure that you print all cards on your screen (10 points)
 		deck.printDeck();
 		
@@ -77,13 +79,27 @@ class Deck{
 		//Card card=new Card(1,1); ->means new card as clubs ace
 		//cards.add(card);
 		//Sample code end
-
+		for(int i=1;i<=nDeck;i++)//透過傳入的參數，來建立到底有幾副牌
+		{
+			for(int suit=1;suit <= 4;suit++)//4種花色
+				{	
+					for(int rank=1;rank <= 13;rank++)//13個號碼
+					{	
+						Card card=new Card(suit,rank);//建立一個Card類別的物件
+						cards.add(card);//將剛剛建立的物件加入cards中
+					}
+				}
+		}
 	}	
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
-		//TODO: please implement and reuse printCard method in Card class (5 points)
-
+		//TODO: please implement and reuse printCard method in Card class (5 points)	
+		for(int i = 0;i<cards.size();i++)
+		{
+		cards.get(i).printCard();//利用get(index)來取得cards中每個Card類別物件,並透過printCard()將其花色及號碼
+		}
+		
 	}
 	public ArrayList<Card> getAllCards(){
 		return cards;
@@ -106,7 +122,7 @@ class Card{
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
 	public void printCard(){
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
-
+		System.out.println(suit+","+rank);//印出Card類別物件的花色及號碼
 	}
 	public int getSuit(){
 		return suit;
